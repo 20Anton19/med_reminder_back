@@ -8,8 +8,10 @@ import java.time.LocalDateTime
 @RestController
 @RequestMapping("/api/test")
 class TestController {
+    data class TestResponse(val message: String, val time: String)
+
     @GetMapping
-    fun test(): String {
-        return "Бэкенд работает! Время: ${LocalDateTime.now()}"
+    fun test(): TestResponse {
+        return TestResponse("Бэкенд работает!", LocalDateTime.now().toString())
     }
 }
